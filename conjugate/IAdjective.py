@@ -3,6 +3,17 @@ __author__ = 'dan'
 
 # General
 
+def is_exception(iadj):
+    if 'いい' == iadj:
+        return True
+    # Space here
+    return False
+
+
+def fix_exception(iadj):  # Todo find a better way to handle i adj exceptions
+    if 'いい' == iadj:
+        return 'よい'
+    return iadj
 
 def stem(iadj):
     return iadj[0:-1]
