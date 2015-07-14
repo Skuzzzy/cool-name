@@ -3,7 +3,6 @@ __author__ = 'dan'
 import conjugate.IAdjective as IAdjective
 
 import unittest
-import json
 
 
 class TestIAdjectiveMethods(unittest.TestCase):
@@ -19,8 +18,6 @@ class TestIAdjectiveMethods(unittest.TestCase):
         self.assertEqual("煩いです", IAdjective.plain_formal(iadj))
         self.assertEqual("煩くありません", IAdjective.negate_formal(iadj))
         self.assertEqual("煩かったです", IAdjective.past_formal(iadj))
-
-        print(json.dumps(IAdjective.create_dictionary(iadj), ensure_ascii=False).encode('utf8'))
 
 if __name__ == '__main__':
     unittest.main()
