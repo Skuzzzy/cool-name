@@ -1,4 +1,5 @@
 http://127.0.0.1:5000/ichidan/食べる
+```
 {  
    "plain":{  
       "plain":"食べる",
@@ -29,9 +30,11 @@ http://127.0.0.1:5000/ichidan/食べる
       "polite":"食べました"
    }
 }
+```
 
 
 http://127.0.0.1:5000/iadj/汚い
+```
 {  
    "causative passive":{  
       "plain":"Todo"
@@ -86,8 +89,10 @@ http://127.0.0.1:5000/iadj/汚い
       "plain":"汚けれくない"
    }
 }
+```
 
 http://127.0.0.1:5000/naadj/元気な
+```
 {  
    "causative":{  
       "plain":null,
@@ -145,4 +150,5 @@ http://127.0.0.1:5000/naadj/元気な
       "plain":"元気じゃなければ"
    }
 }
+```
 
