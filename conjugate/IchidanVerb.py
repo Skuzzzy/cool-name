@@ -71,6 +71,20 @@ def negate_potential(ichidan):
 def negate_potential_polite(ichidan):
     return negate_plain_polite(potential(ichidan))
 
+def create_dictionary(ichidan):
+    dict = {}
 
+    def plain_polite_dictionary(plain, polite):
+        ppd = {"plain": plain, "polite": polite}
+        return ppd
+
+    dict['plain'] = plain_polite_dictionary(plain(ichidan), plain_polite(ichidan))
+    dict['plain negative'] = plain_polite_dictionary(negate_plain(ichidan), negate_plain_polite(ichidan))
+    dict['past'] = plain_polite_dictionary(past(ichidan), past_polite(ichidan))
+    dict['past negative'] = plain_polite_dictionary(negate_past(ichidan), negate_past_polite(ichidan))
+    dict['te form'] = plain_polite_dictionary(te_form(ichidan), te_form_polite(ichidan))
+    dict['potential'] = plain_polite_dictionary(potential(ichidan), potential_polite(ichidan))
+    dict['potential negative'] = plain_polite_dictionary(negate_potential(ichidan), negate_potential_polite(ichidan))
+    return dict
 
 # todo implement other methods

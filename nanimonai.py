@@ -1,6 +1,7 @@
 from flask import Flask
 import conjugate.IAdjective as IAdjective
 import conjugate.NaAdjective as NaAdjective
+import conjugate.IchidanVerb as IchidanVerb
 
 import json
 
@@ -22,6 +23,11 @@ def iadj_api(adj):
 @app.route('/naadj/<adj>')
 def naadj_api(adj):
     return json.dumps(NaAdjective.create_dictionary(adj), ensure_ascii=False).encode('utf8'), 200
+
+
+@app.route('/ichidan/<ichidan>')
+def ichidan_api(ichidan):
+    return json.dumps(IchidanVerb.create_dictionary(ichidan), ensure_ascii=False).encode('utf8'), 200
 
 
 if __name__ == '__main__':
