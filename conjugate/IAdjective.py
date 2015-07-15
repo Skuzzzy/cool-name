@@ -32,7 +32,7 @@ def conditional(iadj):
 
 
 def negate_conditional(iadj):
-    return negate(conditional(iadj))
+    return conditional(negate(iadj))
 
 
 def past_conditional(iadj):
@@ -84,7 +84,7 @@ def past_formal(iadj):
     return past(iadj) + "です"
 
 def negate_past_formal(iadj):
-    return past(iadj) + "ありませんでした"  # Aru
+    return adverbial(iadj) + "ありませんでした"  # Aru # OR 汚くなかった
 
 def create_dictionary(iadj):
     dict = {}

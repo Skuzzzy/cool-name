@@ -22,7 +22,7 @@ def provisional(naadj):
 
 
 def conditional(naadj):
-    return provisional(naadj) + "ば"
+    return provisional(naadj) + "(ば)"
 
 
 def negate_conditional(naadj):
@@ -89,8 +89,7 @@ def create_dictionary(naadj):
     dict['past negative'] = plain_polite_dictionary(negate_past(naadj), negate_past_formal(naadj))
     dict['te form'] = {'plain': te_form(naadj)}
     dict['te form negative'] = {'plain': negate_te_form(naadj)}
-    dict['provisional'] = plain_polite_dictionary(provisional(naadj), None)  # Todo
-    dict['conditional'] = plain_polite_dictionary(conditional(naadj), None)  # Todo
+    dict['provisional'] = plain_polite_dictionary(conditional(naadj), None)  # Todo
     dict['conditional negative'] = {'plain': negate_conditional(naadj)}
     dict['volitional'] = plain_polite_dictionary(volitional(naadj), None)  # Todo
     dict['causative'] = plain_polite_dictionary(None, None) # Todo
