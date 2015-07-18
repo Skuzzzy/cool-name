@@ -116,7 +116,7 @@ http://127.0.0.1:5000/naadj/元気な
       "plain":"元気じゃなかった",
       "polite":"元気じゃありませんでした"
    },
-   "provisional":{  
+   "conditional":{
       "plain":"元気なら(ば)",
       "polite":null
    },
