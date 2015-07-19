@@ -4,6 +4,8 @@ import conjugate.NaAdjective as NaAdjective
 import conjugate.IchidanVerb as IchidanVerb
 import conjugate.GodanVerb as GodanVerb
 import edict.edict_reader as edict
+import utils.charset_utility as charset
+import service.service_paths as paths
 import os
 
 import json
@@ -20,24 +22,17 @@ def conjugate(conjugateable):
 
     if conjugateable[-1:] == 'い':
         print(conjugateable + ' is an い adjective')
-        return json.dumps(IAdjective.create_dictionary(conjugateable), ensure_ascii=False).encode('utf8'), 200
+        return paths.get_i_adjective_json(conjugateable), 200
 
     if conjugateable[-1:] == 'な':
         print(conjugateable + ' is an な adjective')
-        return json.dumps(IAdjective.create_dictionary(conjugateable), ensure_ascii=False).encode('utf8'), 200
+        return paths.get_na_adjective_json(conjugateable), 200
 
-    entry = edict.dict[conjugateable]
-    if entry is None:
+    json_verb_table = paths.get_verb_json(conjugateable)
+    if json_verb_table is None:
         return '', 404
-    parts_of_speech = entry.get_part_of_speech()
-    for pos in parts_of_speech:
-        if 'Ichidan verb' == pos:
-            print(conjugateable + ' is an　一段 verb')
-            return json.dumps(IchidanVerb.create_dictionary(conjugateable), ensure_ascii=False).encode('utf8'), 200
-        if 'verb' in pos:  # If we get past ichidan and it's still a verb then it's godan
-            print(conjugateable + ' is an　五段 verb')
-            return json.dumps(GodanVerb.create_dictionary(conjugateable), ensure_ascii=False).encode('utf8'), 200
-    return '', 404
+    else:
+        return json_verb_table
 
 
 @app.route('/iadj/<adj>')
