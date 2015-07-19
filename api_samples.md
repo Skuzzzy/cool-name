@@ -32,6 +32,44 @@ http://127.0.0.1:5000/ichidan/食べる
 }
 ```
 
+http://127.0.0.1:5000/godan/読む
+```
+{
+   "potential negative":{
+      "plain":"読めない",
+      "polite":"読めません"
+   },
+   "potential":{
+      "plain":"読める",
+      "polite":"読めます"
+   },
+   "te form":{
+      "plain":"読んで",
+      "polite":"読みまして"
+   },
+   "te form negative":{
+      "plain":"読まなくて",
+      "polite":"読みませんで"
+   },
+   "plain":{
+      "plain":"読む",
+      "polite":"読みます"
+   },
+   "past":{
+      "plain":"読んだ",
+      "polite":"読みました"
+   },
+   "past negative":{
+      "plain":"読まなかった",
+      "polite":"読みませんでした"
+   },
+   "plain negative":{
+      "plain":"読まない",
+      "polite":"読みません"
+   }
+}
+```
+
 
 http://127.0.0.1:5000/iadj/汚い
 ```

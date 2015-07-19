@@ -24,6 +24,5 @@ class TestIchidanVerbMethods(unittest.TestCase):
         self.assertEqual("食べられない", IchidanVerb.negate_potential(ichidan))
         self.assertEqual("食べられません", IchidanVerb.negate_potential_polite(ichidan))
 
-
 if __name__ == '__main__':
     unittest.main()

@@ -106,7 +106,7 @@ def create_dictionary(iadj):
     dict['causative'] = {'plain': "Todo"}  # TODO
     dict['causative negative'] = {'plain': "Todo"}  # TODO
     dict['causative passive'] = {'plain': "Todo"}  # TODO
-    dict['causative passive negative'] ={'plain': "Todo"}  # TODO
+    dict['causative passive negative'] = {'plain': "Todo"}  # TODO
     dict['degree'] = {'plain': degree(iadj)}
     dict['adverbial'] = {'plain': adverbial(iadj)}
 
