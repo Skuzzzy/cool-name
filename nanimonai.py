@@ -39,6 +39,7 @@ def godan_api(godan):
 
 if __name__ == '__main__':
     os.chdir(os.path.dirname(os.path.realpath(__file__)))  # Change working directory to current directory
-    edict.default()
+    edict.load()
+
 
     #app.run()
