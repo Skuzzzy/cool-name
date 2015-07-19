@@ -2,8 +2,7 @@ __author__ = 'dan'
 
 import xml.etree.ElementTree as etree
 
-kanji_dict = {}
-hiragana_dict = {}
+dict = {}
 
 class element:
     def __init__(self, xml_element):
@@ -25,9 +24,9 @@ class element:
 
     def add_self_to_dictionary(self):
         for each in self.get_kanji_representations():
-            kanji_dict[each] = self
+            dict[each] = self
         for each in self.get_hiragana_representations():
-            kanji_dict[each] = self
+            dict[each] = self
 
     def print_info(self):
         print(self.ent_seq)

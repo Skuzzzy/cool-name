@@ -87,6 +87,9 @@ def negate_past_formal(iadj):
     return adverbial(iadj) + "ありませんでした"  # Aru # OR 汚くなかった
 
 def create_dictionary(iadj):
+    if is_exception(iadj):
+        adj = fix_exception(iadj)
+
     dict = {}
 
     def plain_polite_dictionary(plain, polite):
