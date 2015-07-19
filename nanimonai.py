@@ -3,7 +3,7 @@ import conjugate.IAdjective as IAdjective
 import conjugate.NaAdjective as NaAdjective
 import conjugate.IchidanVerb as IchidanVerb
 import conjugate.GodanVerb as GodanVerb
-# import edict.edict_reader as edict
+import edict.edict_reader as edict
 import os
 
 import json
@@ -39,6 +39,6 @@ def godan_api(godan):
 
 if __name__ == '__main__':
     os.chdir(os.path.dirname(os.path.realpath(__file__)))  # Change working directory to current directory
-    # edict.default()
+    edict.default()
 
-    app.run()
+    #app.run()
