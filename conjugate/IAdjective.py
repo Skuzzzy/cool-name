@@ -88,7 +88,7 @@ def negate_past_formal(iadj):
 
 def create_dictionary(iadj):
     if is_exception(iadj):
-        adj = fix_exception(iadj)
+        iadj = fix_exception(iadj)
 
     dict = {}
 
