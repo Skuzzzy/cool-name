@@ -132,6 +132,22 @@ def negate_passive_polite(godan):  # !
     return IchidanVerb.negate_plain_polite(passive(godan))
 
 
+def causative(godan):
+    return stem(godan) + get_a_sound(godan) + 'せる'
+
+
+def causative_polite(godan):
+    return IchidanVerb.plain_polite(causative(godan))
+
+
+def negate_causative(godan):
+    return IchidanVerb.negate_plain(causative(godan))
+
+
+def negate_causative_polite(godan):
+    return IchidanVerb.negate_plain_polite(causative(godan))
+
+
 def create_dictionary(godan):
     dict = {}
 
@@ -150,6 +166,9 @@ def create_dictionary(godan):
 
     dict['passive'] = plain_polite_dictionary(passive(godan), passive_polite(godan))
     dict['passive negative'] = plain_polite_dictionary(negate_passive(godan), negate_passive_polite(godan))
+
+    dict['causative'] = plain_polite_dictionary(causative(godan), causative_polite(godan))
+    dict['causative negative'] = plain_polite_dictionary(negate_causative(godan), negate_causative_polite(godan))
     return dict
 
 # todo implement other methods
