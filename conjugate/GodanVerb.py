@@ -131,6 +131,7 @@ def negate_passive(godan):  # !
 def negate_passive_polite(godan):  # !
     return IchidanVerb.negate_plain_polite(passive(godan))
 
+
 def create_dictionary(godan):
     dict = {}
 

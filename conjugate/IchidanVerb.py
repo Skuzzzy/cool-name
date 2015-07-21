@@ -87,6 +87,22 @@ def negate_passive_polite(ichidan):  # !
     return negate_plain_polite(passive(ichidan))
 
 
+def causative(ichidan):  # !
+    return stem(ichidan) + 'させる'
+
+
+def causative_polite(ichidan):  # !
+    return plain_polite(causative(ichidan))
+
+
+def negate_causative(ichidan):  # !
+    return negate_plain(causative(ichidan))
+
+
+def negate_causative_polite(ichidan):  # !
+    return negate_plain_polite(causative(ichidan))
+
+
 def create_dictionary(ichidan):
     dict = {}
 
@@ -105,6 +121,9 @@ def create_dictionary(ichidan):
 
     dict['passive'] = plain_polite_dictionary(passive(ichidan), passive_polite(ichidan))
     dict['passive negative'] = plain_polite_dictionary(negate_passive(ichidan), negate_passive_polite(ichidan))
+
+    dict['causative'] = plain_polite_dictionary(causative(ichidan), causative_polite(ichidan))
+    dict['causative negative'] = plain_polite_dictionary(negate_causative(ichidan), negate_causative_polite(ichidan))
     return dict
 
 # todo implement other methods
