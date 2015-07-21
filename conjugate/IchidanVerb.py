@@ -103,6 +103,13 @@ def negate_causative_polite(ichidan):  # !
     return negate_plain_polite(causative(ichidan))
 
 
+def volitional(ichidan):  # !
+    return stem(ichidan) + 'よう'
+
+def volitional_polite(ichidan):  # !
+    return stem(ichidan) + 'ましょう'
+
+
 def create_dictionary(ichidan):
     dict = {}
 
@@ -124,6 +131,8 @@ def create_dictionary(ichidan):
 
     dict['causative'] = plain_polite_dictionary(causative(ichidan), causative_polite(ichidan))
     dict['causative negative'] = plain_polite_dictionary(negate_causative(ichidan), negate_causative_polite(ichidan))
+
+    dict['volitional'] = plain_polite_dictionary(volitional(ichidan), volitional_polite(ichidan))
     return dict
 
 # todo implement other methods

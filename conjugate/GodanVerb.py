@@ -4,14 +4,14 @@ import conjugate.IAdjective as IAdjective
 import conjugate.IchidanVerb as IchidanVerb
 
 vowel_table = {
-    u"う": [u'い', u'わ', u'え'],
-    u"つ": [u'し', u'た', u'て'],
-    u"る": [u'り', u'ら', u'れ'],
-    u"く": [u'き', u'か', u'け'],
-    u"ぐ": [u'ぎ', u'が', u'げ'],
-    u"ぶ": [u'び', u'ば', u'べ'],
-    u"む": [u'み', u'ま', u'め'],
-    u"す": [u'し', u'さ', u'せ']
+    u"う": [u'い', u'わ', u'え', u'お'],
+    u"つ": [u'し', u'た', u'て', u'と'],
+    u"る": [u'り', u'ら', u'れ', u'ろ'],
+    u"く": [u'き', u'か', u'け', u'こ'],
+    u"ぐ": [u'ぎ', u'が', u'げ', u'ご'],
+    u"ぶ": [u'び', u'ば', u'べ', u'ぼ'],
+    u"む": [u'み', u'ま', u'め', u'も'],
+    u"す": [u'し', u'さ', u'せ', u'そ']
 }
 
 
@@ -32,6 +32,11 @@ def get_a_sound(godan):
 def get_e_sound(godan):
     last_char = godan[-1]
     return vowel_table[last_char][2]
+
+
+def get_o_sound(godan):
+    last_char = godan[-1]
+    return vowel_table[last_char][3]
 
 
 def get_te_form_ending(godan):
@@ -132,20 +137,28 @@ def negate_passive_polite(godan):  # !
     return IchidanVerb.negate_plain_polite(passive(godan))
 
 
-def causative(godan):
+def causative(godan):  # !
     return stem(godan) + get_a_sound(godan) + 'せる'
 
 
-def causative_polite(godan):
+def causative_polite(godan):  # !
     return IchidanVerb.plain_polite(causative(godan))
 
 
-def negate_causative(godan):
+def negate_causative(godan):  # !
     return IchidanVerb.negate_plain(causative(godan))
 
 
-def negate_causative_polite(godan):
+def negate_causative_polite(godan):  # !
     return IchidanVerb.negate_plain_polite(causative(godan))
+
+
+def volitional(godan):  # !
+    return stem(godan) + get_o_sound(godan) + 'う'
+
+
+def volitional_polite(godan):  # !
+    return stem(godan) + get_i_sound(godan) + 'ましょう'
 
 
 def create_dictionary(godan):
@@ -169,6 +182,8 @@ def create_dictionary(godan):
 
     dict['causative'] = plain_polite_dictionary(causative(godan), causative_polite(godan))
     dict['causative negative'] = plain_polite_dictionary(negate_causative(godan), negate_causative_polite(godan))
+
+    dict['volitional'] = plain_polite_dictionary(volitional(godan), volitional_polite(godan))
     return dict
 
 # todo implement other methods
