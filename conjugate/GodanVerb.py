@@ -3,60 +3,39 @@ __author__ = 'dan'
 import conjugate.IAdjective as IAdjective
 import conjugate.IchidanVerb as IchidanVerb
 
+vowel_table = {
+    u"う": [u'い', u'わ', u'え'],
+    u"つ": [u'し', u'た', u'て'],
+    u"る": [u'り', u'ら', u'れ'],
+    u"く": [u'き', u'か', u'け'],
+    u"ぐ": [u'ぎ', u'が', u'げ'],
+    u"ぶ": [u'び', u'ば', u'べ'],
+    u"む": [u'み', u'ま', u'め'],
+    u"す": [u'し', u'さ', u'せ']
+}
+
 
 def stem(godan):
     return godan[0:-1]
 
+
 def get_i_sound(godan):
-
     last_char = godan[-1]
-
-    return {
-        'う': 'い',
-        'つ': 'ち',
-        'る': 'り',
-        'く': 'き',
-        'ぐ': 'ぎ',
-        'ぶ': 'び',
-        'む': 'み',
-        'す': 'し'
-    }[last_char]
+    return vowel_table[last_char][0]
 
 
 def get_a_sound(godan):
     last_char = godan[-1]
-
-    return {
-        'う': 'わ',
-        'つ': 'た',
-        'る': 'ら',
-        'く': 'か',
-        'ぐ': 'が',
-        'ぶ': 'ば',
-        'む': 'ま',
-        'す': 'さ'
-    }[last_char]
+    return vowel_table[last_char][1]
 
 
 def get_e_sound(godan):
     last_char = godan[-1]
-
-    return {
-        'う': 'え',
-        'つ': 'て',
-        'る': 'れ',
-        'く': 'け',
-        'ぐ': 'げ',
-        'ぶ': 'べ',
-        'む': 'め',
-        'す': 'せ'
-    }[last_char]
-
+    return vowel_table[last_char][2]
 
 
 def get_te_form_ending(godan):
     last_char = godan[-1]
-
     return {
         'う': 'って',
         'つ': 'って',
@@ -71,7 +50,6 @@ def get_te_form_ending(godan):
 
 def get_ta_form_ending(godan):
     return get_te_form_ending(godan).replace('て', 'た').replace('で', 'だ')
-
 
 
 def plain(godan):  # !

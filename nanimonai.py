@@ -4,7 +4,6 @@ import conjugate.NaAdjective as NaAdjective
 import conjugate.IchidanVerb as IchidanVerb
 import conjugate.GodanVerb as GodanVerb
 import edict.edict_reader as edict
-import utils.charset_utility as charset
 import service.service_paths as paths
 import os
 
