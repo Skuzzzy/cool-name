@@ -116,19 +116,19 @@ def negate_potential_polite(godan):  # !
     return IchidanVerb.negate_plain_polite(potential(godan))
 
 
-def passive(godan):
+def passive(godan):  # !
     return stem(godan) + get_a_sound(godan) + "れる"
 
 
-def passive_polite(godan):
+def passive_polite(godan):  # !
     return IchidanVerb.plain_polite(passive(godan))
 
 
-def negate_passive(godan):
+def negate_passive(godan):  # !
     return IchidanVerb.negate_plain(passive(godan))
 
 
-def negate_passive_polite(godan):
+def negate_passive_polite(godan):  # !
     return IchidanVerb.negate_plain_polite(passive(godan))
 
 def create_dictionary(godan):
