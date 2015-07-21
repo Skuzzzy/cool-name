@@ -115,6 +115,22 @@ def negate_potential(godan):  # !
 def negate_potential_polite(godan):  # !
     return IchidanVerb.negate_plain_polite(potential(godan))
 
+
+def passive(godan):
+    return stem(godan) + get_a_sound(godan) + "れる"
+
+
+def passive_polite(godan):
+    return IchidanVerb.plain_polite(passive(godan))
+
+
+def negate_passive(godan):
+    return IchidanVerb.negate_plain(passive(godan))
+
+
+def negate_passive_polite(godan):
+    return IchidanVerb.negate_plain_polite(passive(godan))
+
 def create_dictionary(godan):
     dict = {}
 
@@ -130,6 +146,9 @@ def create_dictionary(godan):
     dict['te form negative'] = plain_polite_dictionary(negate_te_form(godan), negate_te_form_polite(godan))
     dict['potential'] = plain_polite_dictionary(potential(godan), potential_polite(godan))
     dict['potential negative'] = plain_polite_dictionary(negate_potential(godan), negate_potential_polite(godan))
+
+    dict['passive'] = plain_polite_dictionary(passive(godan), passive_polite(godan))
+    dict['passive negative'] = plain_polite_dictionary(negate_passive(godan), negate_passive_polite(godan))
     return dict
 
 # todo implement other methods

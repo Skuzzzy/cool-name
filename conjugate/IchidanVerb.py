@@ -70,6 +70,23 @@ def negate_potential(ichidan):  # !
 def negate_potential_polite(ichidan):  # !
     return negate_plain_polite(potential(ichidan))
 
+
+def passive(ichidan):
+    return stem(ichidan) + "られる"  # Note, for ichidan verbs the passive is identical to the potential
+
+
+def passive_polite(ichidan):  # !
+    return plain_polite(passive(ichidan))
+
+
+def negate_passive(ichidan):  # !
+    return negate_plain(passive(ichidan))
+
+
+def negate_passive_polite(ichidan):  # !
+    return negate_plain_polite(passive(ichidan))
+
+
 def create_dictionary(ichidan):
     dict = {}
 
@@ -85,6 +102,9 @@ def create_dictionary(ichidan):
     dict['te form negative'] = plain_polite_dictionary(negate_te_form(ichidan), negate_te_form_polite(ichidan))
     dict['potential'] = plain_polite_dictionary(potential(ichidan), potential_polite(ichidan))
     dict['potential negative'] = plain_polite_dictionary(negate_potential(ichidan), negate_potential_polite(ichidan))
+
+    dict['passive'] = plain_polite_dictionary(passive(ichidan), passive_polite(ichidan))
+    dict['passive negative'] = plain_polite_dictionary(negate_passive(ichidan), negate_passive_polite(ichidan))
     return dict
 
 # todo implement other methods
