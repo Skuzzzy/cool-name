@@ -161,6 +161,10 @@ def volitional_polite(godan):  # !
     return stem(godan) + get_i_sound(godan) + 'ましょう'
 
 
+def provisional(godan):  # !
+    return stem(godan) + get_e_sound(godan) + 'ば'
+
+
 def create_dictionary(godan):
     dict = {}
 
@@ -184,6 +188,8 @@ def create_dictionary(godan):
     dict['causative negative'] = plain_polite_dictionary(negate_causative(godan), negate_causative_polite(godan))
 
     dict['volitional'] = plain_polite_dictionary(volitional(godan), volitional_polite(godan))
+
+    dict['provisional'] = plain_polite_dictionary(provisional(godan), 'TODO')
     return dict
 
 # todo implement other methods
